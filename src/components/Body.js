@@ -17,6 +17,7 @@ export const Body = () => {
 	const fetchData = async () => {
 		let res = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.96340&lng=77.58550&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 		res = await res.json();
+		console.log({res})
 		setListOfRes(res.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
 		setSearchListOfRes(res.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
 		console.log({searchListOfRes})
@@ -48,7 +49,6 @@ export const Body = () => {
 			</div>
 		</div>
 		<div className="res-container flex flex-wrap">
-			{console.log({searchListOfRes})}
 		{searchListOfRes.map((restaurant,index)=>(
 			<Link to={`/restaurant/${restaurant.info.id}`} className='res-tile'>
 				{restaurant.info.isOpen ? <RestaurantCardWithLabel key={`res-${index}`} resData={restaurant.info}/> :<RestaurantCard key={`res-${index}`} resData={restaurant.info}/> }

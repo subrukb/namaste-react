@@ -25,7 +25,7 @@ export const withPromptedLabel = (RestaurantCard) => {
 	return (props) =>{
 		return (
 			<div>
-				<label>opened</label>
+				<label className="absolute bg-black text-white  m-2 p-2 rounded-lg">opened</label>
 				<RestaurantCard {...props}/>
 			</div>
 		)
